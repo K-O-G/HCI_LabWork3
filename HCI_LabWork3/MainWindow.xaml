@@ -5,8 +5,85 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HCI_LabWork3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
+        Title="HCI Laboratory Work №3, Hordiienko, ICIT-218a-SE" Height="350" Width="525" Icon="Resources/Main.png" KeyDown="Window_KeyDown">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="30*"/>
+            <RowDefinition Height="270*"/>
+        </Grid.RowDefinitions>
+        <Menu x:Name="Menu"  VerticalAlignment="Top" Grid.Row="0" Height="18" MinWidth="27" >
+            <MenuItem x:Name="FileDialog" Header="File">
+                <MenuItem x:Name="MessageItem" Header="_Message" Click="MenuItem_Click" InputGestureText="Ctrl+M">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/Message.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="CheckItem" Header="_Check" Click="CheckItem_Click" InputGestureText="Ctrl+C">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/Check.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="ExitItem" Header="_Exit" Click="ExitItem_Click" InputGestureText="Ctrl+E">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/Exit.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem x:Name="AboutItem" Header="_About" Click="AboutItem_Click" InputGestureText="Ctrl+A">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/About.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
         
+        <ToolBar Grid.Row="1" Background="{x:Null}" >
+            <Button Name="MessageTool" ToolTip="Show message (Ctrl+M)" Click="MenuItem_Click">
+                <Image Source="Resources/Message.png" />
+            </Button>
+            <Button Name="CheckTool"  ToolTip="Checking message data (Ctrl+C)" Click="CheckItem_Click">
+                <Image Source="Resources/Check.png" />
+            </Button>
+            <Button Name="ExitTool" ToolTip="Exit from program(Ctrl+E)" Click="ExitItem_Click">
+                <Image Source="Resources/Exit.png" />
+            </Button>
+            <Separator/>
+            <Button Name="AboutTool" ToolTip="About from the program (Ctrl+A)" Click="AboutItem_Click">
+                <Image Source="Resources/About.png" />
+            </Button>
+        </ToolBar>
     </Grid>
+    
+    <Window.ContextMenu>
+        <ContextMenu>
+            <MenuItem x:Name="FileDialogContext" Header="File">
+                <MenuItem x:Name="MessageItemContext" Header="_Message" Click="MenuItem_Click" InputGestureText="Ctrl+M">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/Message.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="CheckItemContext" Header="_Check" Click="CheckItem_Click" InputGestureText="Ctrl+C">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/Check.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="ExitItemContext" Header="_Exit" Click="ExitItem_Click" InputGestureText="Ctrl+E">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/Exit.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem x:Name="AboutItemContext" Header="_About" Click="AboutItem_Click" InputGestureText="Ctrl+A">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/About.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </ContextMenu>
+    </Window.ContextMenu>
 </Window>
