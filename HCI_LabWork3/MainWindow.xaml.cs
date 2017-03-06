@@ -25,57 +25,64 @@ namespace HCI_LabWork3
             InitializeComponent();
         }
 
-        private void Grid_Loaded(object sender, RoutedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+
+        private void MessageItem_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            MessageBox.Show("This is default message!");
         }
 
         private void CheckItem_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            if (MessageItem.IsEnabled == true)
+            {
+                MessageItem.IsEnabled = false;
+                MessageItemContext.IsEnabled = false;
+                MessageTool.IsEnabled = false;
+            }
+            else
+            {
+                MessageItem.IsEnabled = true;
+                MessageItemContext.IsEnabled = true;
+                MessageTool.IsEnabled = true;
+            }
+
         }
 
         private void ExitItem_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            Environment.Exit(0);
         }
 
         private void AboutItem_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            MessageBox.Show("Hi. This is laboratory work on the subject HCI,\n by student Hordiienko, ICIT-218a-SE",
+                "About");
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.M && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
-                MenuItem_Click(this, e);
+                MessageItem_Click(this, e);
             if (e.Key == Key.E && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
                 ExitItem_Click(this, e);
             if (e.Key == Key.C && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
                 CheckItem_Click(this, e);
             if (e.Key == Key.A && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
                 AboutItem_Click(this, e);
-            MenuItem item;
             if (e.Key == Key.C)
             {
                 FileDialog.IsSubmenuOpen = true;
 
             }
-            if (e.Key == Key.A && FileDialog.Items.Contains("New"))
+            if (e.Key == Key.A && !FileDialog.Items.Contains("New"))
             {
                 FileDialog.Items.Add(new Separator());
                 FileDialog.Items.Add("New");
                 FileDialog.Items.Add("Open");
                 FileDialog.Items.Add("Close");
-                item = (MenuItem)FileDialog.Items[3];
-                FileDialog.Items.Remove("Message");
+                FileDialog.Items.RemoveAt(0);
                 FileDialog.Items.Add(new Separator());
-                FileDialog.Items.Add(item);
 
             }
 
