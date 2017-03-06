@@ -16,7 +16,24 @@ using System.Windows.Shapes;
 namespace HCI_LabWork3
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// 1. Create an interface as shown in Fig .3 
+    /// “File” menu item has three commands Message, Check, Exit. 
+    /// “Help” item includes a command “About”. 
+    /// Selection of “Message” will open a message window. 
+    /// Clicking “Exit” will close the application. 
+    /// Selection of “Check” clears the check box and makes the command “Message” unavailable. T
+    /// he second choice of “Check” will return the action. 
+    /// Selection “About” will display information about your application.
+    /// 2. Create necessary menu items with a command list and shortcuts.
+    /// 3. Create a Toolbar, which duplicates “File” menu items.
+    /// 4. For several basic functions create icons using one of famous photo editors, for example, 
+    /// MS Paint.When creating icons, use affordance and analogies well known for most potential users.
+    /// 5. Create the context menu that duplicates the File menu.
+    /// 6. Define an opportunity to close the application when you press X.
+    /// 7. Complete the application according to the variant (Table 5)
+    /// 14.Set so, when we press C button the message with quantity of commands of “File” menu item 
+    /// will be shown.When we press A button commands “New”, “Open” and “Close” will be added to “File” 
+    /// menu item and the command “Message” will be deleted.
     /// </summary>
     public partial class MainWindow : Window
     {
